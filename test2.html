@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merienda|Monoton|Orbitron" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+
+    <form>
+        <div class="form-group">
+          <label for="artist">Email address</label>
+          <input type="artists" class="form-control" id="artist" placeholder="Drake">
+        </div>
+        <input id="searchartist" class="submitbtn btn btn-primary" type="submit" value="searchartist!">
+    </form>
+
+    <div class = "concert"></div>
+
+
+    <script text="text/javascript">
+
+    $("#searchartist").on("click", function (event) {
+
+          event.preventDefault();
+
+        var artistName = $("#artist").val().trim();
+        console.log(artistName)
+
+
+        var apiKey = "1oZzmFud6RvK3DwxVSdYRHg5NHrSkxi4"
+        
+        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistName + "&classificationName=music&countryCode=US&size=10&apikey=1oZzmFud6RvK3DwxVSdYRHg5NHrSkxi4" 
+        
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+
+            var events = response._embedded.events
+
+            
+
+            console.log(events)
+
+
+
+
+
+        })
+
+
+
+
+
+
+
+
+    })
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+    </body>
+    </html>
