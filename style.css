@@ -1,0 +1,178 @@
+body {
+    padding: 25px;
+}
+
+.navbar {
+    font-size: 18px;
+    background-color: salmon;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 25px;
+}
+
+.main-nav {
+    list-style-type: none;
+    display: none;
+    padding-bottom: 25px;
+}
+
+.nav-links,
+.logo {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.main-nav li {
+    text-align: center;
+    margin: 15px auto;
+}
+
+.logo {
+    display: inline-block;
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.navbar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+}
+
+.active {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .main-nav li {
+        margin: 0;
+    }
+
+    .nav-links {
+        margin-left: 40px;
+    }
+
+    .logo {
+        margin-top: 0;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .logo:hover,
+    .nav-links:hover {
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+/******************main body******************/
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 1em;
+    font: 1.2em/1.3em 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Roboto-Light', 'Roboto Light', 'Roboto', 'Segoe UI Web Light', 'Segoe UI Light', 'Segoe UI Web Regular', 'Segoe UI', Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+h1 {
+    font-weight: normal;
+    text-align: center;
+}
+p {
+    margin: 0 0 1em 0;
+}
+
+#main {
+   margin: 0;
+   padding: 0;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-flow: row;
+   flex-flow: row;
+}
+
+header,
+footer,
+#main > article,
+#main > aside,
+#main > aside {
+   margin: 4px;
+   padding: 1em;
+}
+ 
+#main > article {
+   background: #c66;
+   -webkit-flex: 4 1 0;
+           flex: 4 1 0;
+   -webkit-order: 2;
+           order: 2;
+}
+
+#main > aside,
+#main > aside {
+   background: #c66;
+   -webkit-flex: 1 6 0;
+           flex: 1 6 0;
+}
+#main > aside {
+   -webkit-order: 1;
+           order: 1;
+}
+  
+#main > aside {
+   -webkit-order: 3;
+           order: 3;
+}
+ 
+header, footer {
+   display: block;
+   min-height: 80px;
+}
+
+header {
+   background: #c66;
+}
+
+footer {
+  background: #c66;
+}
+ 
+/* Too narrow to support three columns */
+  @media all and (max-width: 640px) {
+  
+   #main, #page {
+    -webkit-flex-flow: column;
+            flex-flow: column;
+}
+
+   #main > article, #main > aside, #main > aside {
+    /* Return them to document order */
+    -webkit-order: 0;
+            order: 0;
+   }
+  
+   #main > aside, #main > aside, header, footer {
+    min-height: 50px;
+  
+   }
+}

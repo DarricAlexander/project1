@@ -1,0 +1,98 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body{
+    background-image: url(concert.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.col-md-5{
+    margin-top:100px;
+    height: 400px;
+    background: rgba(216, 3, 180, 0.7);
+    border-radius: 10px 0px 10px 0px;
+
+}
+
+h4{
+    font-size: 22px;
+    margin-top: 30px;
+    margin-left: 30px;
+    color: white;
+}
+
+.glyphicon-log-in{
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+
+}
+
+h1{
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px 10px #b11aec;
+}
+
+.input-group{
+    margin-top: 20px;
+    padding-left: 15px;
+
+}
+
+.input-group-addon{
+    background: transparent;
+    border-radius: 0px;
+    color: white;
+    font-size: 20px;
+}
+
+.form-control{
+    background: transparent;
+    border-radius: 0px;
+    font-size: 20px;
+    height: 40px;
+    color: white;
+    border-left: 0px;
+
+}
+
+input[type="checkbox"] {
+    margin-top: 20px;
+
+}
+
+small {
+    font-size: 18px;
+    color: white;
+}
+
+p{
+    font-size: 19px;
+    color: white;
+    margin-left: 300px;
+    margin-top: 40px;
+}
+
+.btn-warning{
+    margin-left: 80px;
+    margin-top: 8px;
+    width: 180px;
+    font-size: 18px;
+    border-radius: 1000px;
+    background-color: white;
+}
+
+.btn-secondary{
+    margin-left: 250px;
+    margin-top: 8px;
+    width: 180px;
+    font-size: 18px;
+    border-radius: 1000px;
+    
+
+}
