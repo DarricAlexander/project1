@@ -64,7 +64,7 @@
                 </ul>
             </nav>
 
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid text-center">
                 <div class="container">
                     <h1 class="display-4">Search an Artist</h1>
                     <form action="">
@@ -77,7 +77,14 @@
 
             <header id="artistSearchedFor">
 
+
             </header>
+            <div class="row">
+                <div class="col text-center">
+                    <h6 id="similar-artists">similar Artists Button Go here</h6>
+                </div>
+
+            </div>
 
             <div id="main">
                 <aside>Top 5 Tracks:
@@ -111,7 +118,10 @@
             $("#artistSearchedFor").text("");
             $("#topTracks").text("");
             $("#artistInfo").text("");
+            $("#ticketmaster").text("");
+            $("#similar-artists").text("");
         }
+
         // on click event for click button
         $("#searchButton").on("click", function (event) {
             event.preventDefault();
@@ -121,18 +131,38 @@
             var artistName = $("#userSearch").val().trim();
             $("#artistSearchedFor").append("<h1>" + artistName + "</h1>")
             console.log(artistName)
+            $.ajax({
+                method: "GET",
+                url: "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+
+                // searches for 5 similar artist based on the artist searched
+            }).then(function (similarArtist) {
+                console.log(similarArtist);
+                for (var s = 0; s < 5; s++) {
+                    console.log(similarArtist.similarartists.artist[s].name)
+
+                    var $similarArtitstButton = $("<button>")
+                    $similarArtitstButton.attr("data-value", similarArtist.similarartists.artist[s].name)
+                    $similarArtitstButton.addClass("similar-artist-button")
+                    $similarArtitstButton.text(similarArtist.similarartists.artist[s].name)
+                    $("#similar-artists").append($similarArtitstButton)
+                    // // appends the tracks to the to our top tracks list
+                    // $("#artists-similar").append("<button>" + similarArtist.similarartists.artist[s].name + "</button>")
+                }
+
+            });
             // AJAX call taking in the artist name in the search bar 
             $.ajax({
                 method: "GET",
                 url: "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
-                // searches for the top 5 tracks for searched artist 
 
+                // searches for the top 5 tracks for searched artist 
             }).then(function (data) {
                 console.log(data);
                 for (var i = 0; i < 5; i++) {
                     console.log(data.toptracks.track[i].name)
 
-                    // $("#trivia").append("<li>" + response.results[i].question + "</li>")
+
                     // appends the tracks to the to our top tracks list
                     $("#topTracks").append("<li>" + data.toptracks.track[i].name + "</li>" + "<br>")
                 }
@@ -234,6 +264,154 @@
 
 
         })
+
+
+        $(document).on("click", ".similar-artist-button", function (event) {
+            event.preventDefault();
+            console.log("similar artist button clicked")
+            reset();
+            // clears out information if user searches multiple times
+            var artistName = $(this).data("value");
+            console.log(artistName)
+            $("#artistSearchedFor").append("<h1>" + artistName + "</h1>")
+
+
+            $.ajax({
+                method: "GET",
+                url: "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+
+                // searches for 5 similar artist based on the artist searched
+            }).then(function (similarArtist) {
+                console.log(similarArtist);
+                for (var s = 0; s < 5; s++) {
+                    console.log(similarArtist.similarartists.artist[s].name)
+
+                    var $similarArtitstButton = $("<button>")
+                    $similarArtitstButton.attr("data-value", similarArtist.similarartists.artist[s].name)
+                    $similarArtitstButton.addClass("similar-artist-button")
+                    $similarArtitstButton.text(similarArtist.similarartists.artist[s].name)
+                    $("#similar-artists").append($similarArtitstButton)
+                    // // appends the tracks to the to our top tracks list
+                    // $("#artists-similar").append("<button>" + similarArtist.similarartists.artist[s].name + "</button>")
+                }
+
+            });
+            // AJAX call taking in the artist name in the search bar 
+            $.ajax({
+                method: "GET",
+                url: "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+
+                // searches for the top 5 tracks for searched artist 
+            }).then(function (data) {
+                console.log(data);
+                for (var i = 0; i < 5; i++) {
+                    console.log(data.toptracks.track[i].name)
+
+
+                    // appends the tracks to the to our top tracks list
+                    $("#topTracks").append("<li>" + data.toptracks.track[i].name + "</li>" + "<br>")
+                }
+
+            });
+            $.ajax({
+                method: "GET",
+                url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+                // searches for the top 5 tracks for searched artist 
+
+            }).then(function (data) {
+                console.log(data);
+                for (var j = 0; j < 1; j++) {
+                    console.log(data.artist.bio.summary)
+
+                    // $("#trivia").append("<li>" + response.results[i].question + "</li>")
+                    // appends the tracks to the to our top tracks list
+                    $("#artistInfo").append("<p>" + data.artist.bio.summary + "</p>")
+                }
+
+            });
+            var apiKey = "1oZzmFud6RvK3DwxVSdYRHg5NHrSkxi4"
+
+            var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistName + "&classificationName=music&countryCode=US&size=5&apikey=1oZzmFud6RvK3DwxVSdYRHg5NHrSkxi4"
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                console.log(response)
+
+                var events = response._embedded.events
+                console.log(events)
+                var imgArr = []
+
+                for (var x = 0; x < events.length; x++) {
+
+                    var $div = $("<div>")
+
+
+                    var $p1 = $("<p>")
+                    $p1.html(events[x].classifications[0].genre.name)
+                    $div.append($p1)
+
+                    var $p2 = $("<p>")
+                    $p2.html(events[x].dates.start.localDate)
+                    $div.append($p2)
+
+                    var $p3 = $("<p>")
+                    $p3.html(events[x].dates.start.localTime)
+                    $div.append($p3)
+
+                    var $p7 = $("<p>")
+                    $p7.html(events[x].dates.timezone)
+                    $div.append($p7)
+
+
+                    var $p4 = $("<p>")
+                    var $img = $("<img>")
+
+
+                    console.log(imgArr.includes(events[x].images[0].url))
+                    console.log(events[x].images[0].url)
+                    console.log(imgArr)
+
+
+                    if (imgArr.includes(events[x].images[0].url)) {
+                        console.log("same image")
+
+                    }
+
+                    else {
+                        console.log("different pics")
+
+                        imgArr.push(events[x].images[0].url)
+                        $img.addClass("concertimg")
+                        $img.attr("src", events[x].images[0].url)
+                        $p4.append($img)
+                        $div.append($p4)
+                    }
+
+
+                    var $p5 = $("<p>")
+                    $p5.html(events[x].name)
+                    $div.append($p5)
+
+                    var $p6 = $("<p>")
+                    $p6.html(events[x].url)
+                    $div.append($p6)
+
+
+                    $("#ticketmaster").append($div)
+
+                }
+
+            })
+            $("#userSearch").val("");
+
+
+
+
+
+        });
+
 
 
 
