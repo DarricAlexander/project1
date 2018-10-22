@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Merienda|Monoton|Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
 
 </head>
@@ -19,47 +20,122 @@
 
 
 
+    <nav class="navbar">
+        <a href="#" class="logo">logo</a>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="#" class="nav-links">Home</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Link 1</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Link 2</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Link 3</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Link 4</a>
+            </li>
+        </ul>
+    </nav>
 
-    <form>
-        <div class="form-group">
-          <label for="artist">Email address</label>
-          <input type="artists" class="form-control" id="artist" placeholder="Drake">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Search an Artist</h1>
+            <input id="userSearch" type="text" placeholder="Tupac">
+            <button id="searchButton">Lets Jam</button>
         </div>
-        <input id="searchartist" class="submitbtn btn btn-primary" type="submit" value="searchartist!">
-    </form>
+    </div>
 
-    <div class = "concert"></div>
+    <header>
+        <h1>Content Box1</h1>
+    </header>
+
+    <div id="main">
+        <aside>aside</aside>
+        <aside id="ebay"></aside>
+
+        <article>
+            <p>Kitty ipsum dolor sit amet, sunbathe claw bat puking, stretching feed me eat catnip fluffy fur claw
+                sleep in the sink sleep in the sink. Hiss hairball fluffy fur lick biting, run eat the grass chase the
+                red dot attack your ankles meow. Rip the couch catnip run meow stuck in a tree, sleep on your face
+                stretching lick climb the curtains purr jump on the table jump on the table. Sleep in the sink feed me
+                sniff give me fish toss the mousie, I don't like that food eat eat knock over the lamp scratched chase
+                the red dot.</p>
+
+            <p>Kitty ipsum dolor sit amet, sunbathe claw bat puking, stretching feed me eat catnip fluffy fur claw
+                sleep in the sink sleep in the sink. Hiss hairball fluffy fur lick biting, run eat the grass chase the
+                red dot attack your ankles meow. Rip the couch catnip run meow stuck in a tree, sleep on your face
+                stretching lick climb the curtains purr jump on the table jump on the table. Sleep in the sink feed me
+                sniff give me fish toss the mousie, I don't like that food eat eat knock over the lamp scratched chase
+                the red dot.</p>
+        </article>
+
+    </div>
+    <footer>
+        Footer
+    </footer>
 
 
     <script text="text/javascript">
 
-    $("#searchartist").on("click", function (event) {
+        $("#searchButton").on("click", function (event) {
 
-          event.preventDefault();
+            event.preventDefault();
 
-        var artistName = $("#artist").val().trim();
-        console.log(artistName)
+            var artistName = $("#userSearch").val().trim();
+            console.log(artistName)
 
-
-        var apiKey = "1oZzmFud6RvK3DwxVSdYRHg5NHrSkxi4"
-        
-        var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistName + "&classificationName=music&countryCode=US&size=10&apikey=1oZzmFud6RvK3DwxVSdYRHg5NHrSkxi4" 
-        
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response)
-
-            var events = response._embedded.events
-
-            
-
-            console.log(events)
+            var ebayUrl = "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + artistName + "&paginationInput.entriesPerPage=5&GLOBAL-ID=EBAY-US&siteid=0&SECURITY-APPNAME=FadyNagu-CWA-PRD-87f47136f-f149d6f1"
 
 
+            $.ajax({
+                url: ebayUrl,
+                method: "GET"
+            }).then(function (response) {
+                var res = JSON.parse(response);
+                var finalRes = res.findItemsByKeywordsResponse[0].searchResult[0].item
+                console.log(finalRes)
+
+                for (var a = 0; a < finalRes.length; a++) {
+
+                            var $div = $("<div>")
 
 
+                            var $p1 = $("<p>")
+                            $p1.html(finalRes[a].title[0])
+                            $div.append($p1)
+
+                            var $p2 = $("<p>")
+                            var $img = $("<img>")
+                            $img.addClass("concertimg")
+                            $img.attr("src",finalRes[a].galleryURL[0] )
+                            $p2.append($img)
+                            $div.append($p2)
+                           
+                          
+
+                            var $p3 = $("<a>")
+                            $p3.attr("href",finalRes[a].viewItemURL[0])
+                            $p3.html(finalRes[a].viewItemURL[0])
+                            $div.append($p3)
+
+                            var $p4 = $("<p>")
+                            $p4.html(finalRes[a].sellingStatus[0].currentPrice[0].__value__ + " USD" )
+                            $div.append($p4)
+
+
+
+                            $("#ebay").append($div)
+
+                        }
+
+
+
+        })
 
         })
 
@@ -70,19 +146,18 @@
 
 
 
-    })
 
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
     </script>
-    </body>
-    </html>
+</body>
+
+</html>
