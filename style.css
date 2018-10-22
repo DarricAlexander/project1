@@ -19,6 +19,8 @@ body {
 .logo {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
+    font-family: 'Roboto Condensed', sans-serif;
+
 }
 
 .main-nav li {
@@ -31,6 +33,8 @@ body {
     font-size: 22px;
     margin-top: 10px;
     margin-left: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+
 }
 
 .navbar-toggle {
@@ -147,6 +151,11 @@ footer,
 header, footer {
    display: block;
    min-height: 80px;
+}
+
+.concertimg{
+    width:300px;
+    height:auto;
 }
 
 header {
