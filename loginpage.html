@@ -14,13 +14,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="index1.css">
+        <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
   
-    <script src="app.js"></script>
-    <title>Project1</title>
+        <title>Project1</title>
+        
+    </head>
 
-</head>
-
-
+    
 <body>
    <div class="container">
        <div class="row">
@@ -31,38 +31,39 @@
                <div class="input-group">
                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                    <input type="text"  class="form-control" name="name" placeholder="Username">
-               </div>
-               <div class="input-group">
+                </div>
+                <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                     <input type="password"  class="form-control" name="password" placeholder="password">
                 </div>
                 <input type="checkbox"> <small>Remember Password</small>
                 <a href="#"><div class="btn btn-warning">LOGIN</div></a>
                 <a href="#"><p>Forgot Password?</p></a>
-           </div>
-           <div class="col-md-1"></div>
-           <div class="col-md-5">
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
                 <h4 class="text-left">Sign up for a Fandom Account!</h4>
                 <h1 class="text-left><span class="glyphicon glyphicon-log-in></span>Join Fandom</h1>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    <input type="text"  class="form-control" name="name" placeholder="Username">
+                    <input id="user" type="text"  class="form-control" name="name" placeholder="Username">
                 </div>
                 <div class="input-group">
-                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                     <input type="password"  class="form-control" name="password" placeholder="password">
-                 </div>
-                 <div class="input-group">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password"  class="form-control" name="confirm password" placeholder="Confirm Password">
-                    </div>
-                 <input type="checkbox"> <small>Remember Password</small>
-                 <a href="#"><div class="btn btn-secondary">REGISTER</div></a>
-                 
-           </div>
-       </div>
-   </div>        
-        
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input id= "password"type="password"  class="form-control" name="password" placeholder="password">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input id="confirmPassword" type="password"  class="form-control" name="confirm password" placeholder="Confirm Password">
+                </div>
+                <input type="checkbox"> <small>Remember Password</small>
+                <button id = "registerButton" class="btn btn-secondary">REGISTER</button>
+                
+            </div>
+        </div>
+    </div>        
+    
+    <script src="app.js"></script>
     
 </body>
 

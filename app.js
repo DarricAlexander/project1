@@ -1,12 +1,17 @@
+
+
+
+// Initialize Firebase
 var config = {
-  apiKey: "AIzaSyAP9vTHkFhnYEAfO5QEV4-rqCVtdiX65dI",
-  authDomain: "project1a-4aa81.firebaseapp.com",
-  databaseURL: "https://project1a-4aa81.firebaseio.com",
-  projectId: "project1a-4aa81",
-  storageBucket: "project1a-4aa81.appspot.com",
-  messagingSenderId: "709568554604"
+    apiKey: "AIzaSyBJINFK3PEzkcyIXTLm_Y326rWAkGgflD8",
+    authDomain: "group-project1-35b77.firebaseapp.com",
+    databaseURL: "https://group-project1-35b77.firebaseio.com",
+    projectId: "group-project1-35b77",
+    storageBucket: "",
+    messagingSenderId: "433243594797"
 };
 firebase.initializeApp(config);
+
 
 var database = firebase.database();
 
@@ -15,29 +20,34 @@ var userName = ""
 var password = ""
 
 var confirmPassword = ""
+function clearCreateAccount() {
+ 
+}
 
-$("#registerbutton").on("click", function(event) {
+$("#registerButton").on("click", function (event) {
     event.preventDefault();
-
-    console.log("pushing")
-
     userName = $("#user").val().trim();
-    console.log(userName);
     password = $("#password").val().trim();
-    confirmPassword = $("#confirmpassword").val().trim();
-
+    confirmPassword = $("#confirmPassword").val().trim();
+    
     console.log(userName);
     console.log(password);
     console.log(confirmPassword);
     database.ref().push({
-        user: user,
+        user: userName,
         password: password,
-        confirmpassword: confirmpassword,
+        confirmpassword: confirmPassword,
         dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+    $("#user").text("");
+    $("#password").text("");
+    $("#confirmPassword").text("");
     
-
+    
+    
+  
 });
+
 
 // function(errorObject) {
 //     console.log("The read failed: " + errorObject.code);

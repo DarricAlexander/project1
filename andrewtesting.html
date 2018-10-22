@@ -76,14 +76,14 @@
 
 
             <header id="artistSearchedFor">
-                
+
             </header>
-                    <div class="row">
-                        <div class="col text-center">
-                            <h6 id="similar-artists">similar Artists Button Go here</h6>
-                        </div>
-        
-                    </div>
+            <div class="row">
+                <div class="col text-center">
+                    <h6 id="similar-artists">similar Artists Button Go here</h6>
+                </div>
+
+            </div>
 
             <div id="main">
                 <aside>Top 5 Tracks:
@@ -95,8 +95,15 @@
                     <h3 id="artistInfo">Artist Info:</h3>
 
                 </article>
-
             </div>
+            <div class="row">
+                <div class="col">
+                    <div id="ebay"></div>
+                </div>
+            </div>
+
+
+
             <footer>
                 Footer
             </footer>
@@ -119,6 +126,7 @@
             $("#artistInfo").text("");
             $("#ticketmaster").text("");
             $("#similar-artists").text("");
+            $("#ebay").text("");
         }
 
         // on click event for click button
@@ -256,6 +264,53 @@
                     $("#ticketmaster").append($div)
 
                 }
+
+            })
+            var ebayUrl = "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + artistName + "&paginationInput.entriesPerPage=5&GLOBAL-ID=EBAY-US&siteid=0&SECURITY-APPNAME=FadyNagu-CWA-PRD-87f47136f-f149d6f1"
+
+
+            $.ajax({
+                url: ebayUrl,
+                method: "GET"
+            }).then(function (response) {
+                var res = JSON.parse(response);
+                var finalRes = res.findItemsByKeywordsResponse[0].searchResult[0].item
+                console.log(finalRes)
+
+                for (var a = 0; a < finalRes.length; a++) {
+
+                    var $div = $("<div>")
+
+
+                    var $p1 = $("<p>")
+                    $p1.html(finalRes[a].title[0])
+                    $div.append($p1)
+
+                    var $p2 = $("<p>")
+                    var $img = $("<img>")
+                    $img.addClass("concertimg")
+                    $img.attr("src", finalRes[a].galleryURL[0])
+                    $p2.append($img)
+                    $div.append($p2)
+
+
+
+                    var $p3 = $("<a>")
+                    $p3.attr("href", finalRes[a].viewItemURL[0])
+                    $p3.html(finalRes[a].viewItemURL[0])
+                    $div.append($p3)
+
+                    var $p4 = $("<p>")
+                    $p4.html(finalRes[a].sellingStatus[0].currentPrice[0].__value__ + " USD")
+                    $div.append($p4)
+
+
+
+                    $("#ebay").append($div)
+
+                }
+
+
 
             })
             $("#userSearch").val("");
@@ -401,9 +456,58 @@
                     $("#ticketmaster").append($div)
 
                 }
+                var ebayUrl = "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=" + artistName + "&paginationInput.entriesPerPage=5&GLOBAL-ID=EBAY-US&siteid=0&SECURITY-APPNAME=FadyNagu-CWA-PRD-87f47136f-f149d6f1"
+
+
+                $.ajax({
+                    url: ebayUrl,
+                    method: "GET"
+                }).then(function (response) {
+                    var res = JSON.parse(response);
+                    var finalRes = res.findItemsByKeywordsResponse[0].searchResult[0].item
+                    console.log(finalRes)
+
+                    for (var a = 0; a < finalRes.length; a++) {
+
+                        var $div = $("<div>")
+
+
+                        var $p1 = $("<p>")
+                        $p1.html(finalRes[a].title[0])
+                        $div.append($p1)
+
+                        var $p2 = $("<p>")
+                        var $img = $("<img>")
+                        $img.addClass("concertimg")
+                        $img.attr("src", finalRes[a].galleryURL[0])
+                        $p2.append($img)
+                        $div.append($p2)
+
+
+
+                        var $p3 = $("<a>")
+                        $p3.attr("href", finalRes[a].viewItemURL[0])
+                        $p3.html(finalRes[a].viewItemURL[0])
+                        $div.append($p3)
+
+                        var $p4 = $("<p>")
+                        $p4.html(finalRes[a].sellingStatus[0].currentPrice[0].__value__ + " USD")
+                        $div.append($p4)
+
+
+
+                        $("#ebay").append($div)
+
+                    }
+
+
+
+                })
 
             })
+
             $("#userSearch").val("");
+
 
 
 
