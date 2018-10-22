@@ -153,6 +153,11 @@ header, footer {
    min-height: 80px;
 }
 
+.concertimg{
+    width:300px;
+    height:auto;
+}
+
 header {
    background: #c66;
 }
