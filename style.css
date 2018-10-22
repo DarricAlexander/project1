@@ -1,12 +1,17 @@
 body {
     padding: 25px;
+    font-family: squada-one, sans-serif;
 }
 
 .navbar {
-    font-size: 18px;
-    background-color: salmon;
+    font-size: 20px;
+    background-color: black;
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 25px;
+    opacity: 0.7;
+    font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal; ;
 }
 
 .main-nav {
@@ -18,17 +23,24 @@ body {
 .nav-links,
 .logo {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: white;
+    font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal; ;
 }
 
 .main-nav li {
     text-align: center;
     margin: 15px auto;
+    font-size: 19px;
+    font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal; ;;
 }
 
 .logo {
     display: inline-block;
-    font-size: 22px;
+    font-size: 23px;
     margin-top: 10px;
     margin-left: 20px;
 }
@@ -83,6 +95,9 @@ body {
         color: rgba(255, 255, 255, 1);
     }
 }
+.jumbotron {
+    background-color:transparent !important; 
+}
 
 /******************main body******************/
 
@@ -92,18 +107,61 @@ body {
 body {
     margin: 1em;
     font: 1.2em/1.3em 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Roboto-Light', 'Roboto Light', 'Roboto', 'Segoe UI Web Light', 'Segoe UI Light', 'Segoe UI Web Regular', 'Segoe UI', Helvetica, Arial, sans-serif;
-  color: #fff;
+    background-image: url(https://flyingpig.nl/__data/assets/image/0017/522530/Amsterdam-festivals-lead.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1 {
     font-weight: normal;
     text-align: center;
+    color:white; 
 }
+
+h3{
+    font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal;  
+}
+
+
 p {
     margin: 0 0 1em 0;
 }
 
+#trackList{
+    background: #39ff07;
+    color:white;
+    opacity: 0.7;
+    font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal; 
+}
+
+#ticketmaster{
+    background: #39ff07;
+    color:white;
+    font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal; 
+    opacity: 0.7
+}
+
+#artistSearchedFor{
+    font-family: 'BloggerSansBold';
+}
+
+form{
+     align-items: center;
+ }
+
+.image-style{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 #main {
-   margin: 0;
+   margin: 0 !important;
    padding: 0;
    display: -webkit-flex;
    display: flex;
@@ -116,16 +174,18 @@ footer,
 #main > article,
 #main > aside,
 #main > aside {
-   margin: 4px;
+   margin: 4px 0;
    padding: 1em;
 }
  
 #main > article {
-   background: #c66;
+   background:#39ff07;
+   color:  white;
    -webkit-flex: 4 1 0;
            flex: 4 1 0;
    -webkit-order: 2;
-           order: 2;
+           order: 2; 
+           opacity: 0.7
 }
 
 #main > aside,
@@ -150,11 +210,19 @@ header, footer {
 }
 
 header {
-   background: #c66;
+   background:#39ff07;
+   color:white;
+   opacity: 0.7
 }
 
 footer {
-  background: #c66;
+  background:#39ff07;
+  color: white;
+  font-family: 'BloggerSansBold'; 
+    font-weight: bold; 
+    font-style: normal; 
+  text-align: center;
+  opacity: 0.7
 }
  
 /* Too narrow to support three columns */
