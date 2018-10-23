@@ -63,7 +63,7 @@ $(".loginButton").on("click", function toggleSignIn(event) {
         // Sign in with email and pass.
 
         firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
-            window.location = 'index.html'
+            window.location = 'maincontent.html'
         }).catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -89,7 +89,7 @@ $(".loginButton").on("click", function toggleSignIn(event) {
 $(".signoutButton").on("click", function handleSignUp() {
    
     auth.signOut().then(function() {
-        window.location = 'loginpage.html'
+        window.location = 'index.html'
         console.log('Signed Out');
       }, function(error) {
         console.error('Sign Out Error', error);

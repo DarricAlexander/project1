@@ -1,123 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-</head>
-
-
-<body>
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
-
-    <body>
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-                integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-                crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="style.css">
-            <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-            <script src="app.js"></script>
-            <link href="https://fonts.googleapis.com/css?family=Hind+Guntur" rel="stylesheet">
-            <title>Document</title>
-        </head>
-
-        <body>
-            <nav class="navbar">
-                <a href="logo.png" class="logo">
-                        <img src="logo.png" width="125" height="120" class="d-inline-block align-top" alt="">
-                </a>
-                <ul class="main-nav" id="js-menu">
-                    <li>
-                    </li>
-                    <li>
-                    <div class="signoutButton btn btn-secondary">Sign Out</div>
-                    </li>
-                    
-                </ul>
-            </nav>
-
-            <div class="jumbotron jumbotron-fluid text-center">
-                <div class="container">
-                    <h1 class="display-4">Artist Search</h1>
-                    <form action="">
-                        <input id="userSearch" type="text" placeholder="Tupac">
-                        <button type="submit" id="searchButton">Lets Jam</button>
-                    </form>
-                </div>
-            </div>
-
-
-            <div id="main-container">
-                <header class="hidden col-xs-12 col-md-12 col-lg-12 text-center" id="artistSearchedFor">
-
-                </header>
-                <div class="row hidden">
-                    <div class="col-xs-12 col-md-12 text-center">
-                        <h6 id="similar-artists">Similar Artists Button Go here</h6>
-                    </div>
-
-                </div>
-
-                <div class="row hidden">
-                    <div class="col-md-10 col-xs-12 task5">
-
-                        <h3 id="artistInfo">Artist Info:</h3>
-
-
-                    </div>
-                    <div class="col-md-2  col-xs-12 bg-primary"> Top 5 Tracks:
-                        <ol id="topTracks"></ol>
-                    </div>
-                </div>
-
-                <div class="row hidden">
-                    <div class="col-md-6 col-xs-12 bg-primary" id="ticketmaster" style="border:10px solid rgb(219, 216, 17);">
-                    </div>
-
-                    <div class="col-md-6 col-xs-12 bg-primary">
-                        <div id="ebay" style="border:5px solid rgb(17, 145, 219);"></div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-
-           
-
-        </body>
-
-        </html>
-
-    </body>
-
-    </html>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
-        <script src="app.js"></script>
-    <script src="content.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Project1</title>
     
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h4 class="text-left">Already a Fandom Member?</h4>
+                <h1 class="text-left><span class=" glyphicon glyphicon-log-in></span>Login Here</h1>
+                <span id= "errorLoginUser"></span>
+                <span id= "errorLoginPassword"></span>
+                
+    
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    <input type="text" id="userLogin" class="form-control" name="name" placeholder="E-mail">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input type="password" id="passwordLogin" class="form-control" name="Password" placeholder="Password">
+                </div>
+               
+              
+                    <div class="loginButton btn btn-warning">LOGIN</div>
+               
+          
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h4 class="text-left">Sign up for a Fandom Account!</h4>
+                <h1 class="text-left><span class=" glyphicon glyphicon-log-in></span>Join Fandom</h1>
+                <span id= "errorRegisterUser"></span>
+                <span id= "errorRegisterPassword"></span>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                    <input type="text" id="user" class="form-control" name="name" placeholder="E-mail">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Password">
+                </div>
+               
+               
+                    <div class="regiserButton btn btn-secondary">REGISTER</div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+    
+        <script src="app.js"></script>
+</body>
+</html>
