@@ -19,7 +19,7 @@ $("#searchButton").on("click", function (event) {
     console.log(artistName)
     $.ajax({
         method: "GET",
-        url: "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+        url: "https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
 
         // searches for 5 similar artist based on the artist searched
     }).then(function (similarArtist) {
@@ -40,7 +40,7 @@ $("#searchButton").on("click", function (event) {
     // AJAX call taking in the artist name in the search bar 
     $.ajax({
         method: "GET",
-        url: "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+        url: "https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
 
         // searches for the top 5 tracks for searched artist 
     }).then(function (data) {
@@ -56,7 +56,7 @@ $("#searchButton").on("click", function (event) {
     });
     $.ajax({
         method: "GET",
-        url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+        url: "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
         // searches for the top 5 tracks for searched artist 
 
     }).then(function (data) {
@@ -231,7 +231,7 @@ $(document).on("click", ".similar-artist-button", function (event) {
 
     $.ajax({
         method: "GET",
-        url: "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+        url: "https://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
 
         // searches for 5 similar artist based on the artist searched
     }).then(function (similarArtist) {
@@ -252,7 +252,7 @@ $(document).on("click", ".similar-artist-button", function (event) {
     // AJAX call taking in the artist name in the search bar 
     $.ajax({
         method: "GET",
-        url: "http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+        url: "https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
 
         // searches for the top 5 tracks for searched artist 
     }).then(function (data) {
@@ -268,7 +268,7 @@ $(document).on("click", ".similar-artist-button", function (event) {
     });
     $.ajax({
         method: "GET",
-        url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
+        url: "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + artistName + "&api_key=650a431e2e1dc51e90af7ed56bc008d8&format=json"
         // searches for the top 5 tracks for searched artist 
 
     }).then(function (data) {
